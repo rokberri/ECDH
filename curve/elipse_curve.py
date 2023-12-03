@@ -12,7 +12,7 @@ class ElipseCurve():
         
     @property
     def get_coef(self)->list:
-        return (self.__a,self.__b,self.__c)\
+        return (self.__a,self.__b,self.__c)
     @property
     def get_a(self)->float:
         return self.__a

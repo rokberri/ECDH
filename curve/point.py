@@ -46,7 +46,7 @@ class Point():
         # если точки одинаковые
         if self.__eq__(other):
             try:
-                alpha = (3*pow(self.__x,2) + self.__curve.get_a()) * Point.inv_mod(2 * self.__y, self.__mod)
+                alpha = (3*pow(self.__x,2) + self.__curve.get_a) * Point.inv_mod(2 * self.__y, self.__mod)
             except ValueError:
                 return ZERO
         else:
@@ -64,16 +64,7 @@ class Point():
         return self.__x == other.__x and self.__y == other.__y
 
     def __mul__(self, other):
-        # if other == 0:
-        #     return Point(float('inf'),float('inf'),self.__mod,curve=self.__curve)
-        # P = self
-        # bin_other = bin(other).replace('0b','')
         R = Point(float('inf'),float('inf'),self.__mod,curve=self.__curve)
-        # for i in bin_other:
-        #     if i == '1':
-        #         R = R + P
-        #     P = P + P
-        
         for i in range(other):
             R+=self
         return R
@@ -85,9 +76,4 @@ class Point():
         for r in n:
             if (self * r)==(ZERO):
                 return r
-        # while True:
-        #     new_dot = self*n
-        #     print(n,new_dot)
-        #     if new_dot.__eq__(ZERO):
-        #         return n
-        #     n += 1
+

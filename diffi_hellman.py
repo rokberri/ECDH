@@ -3,8 +3,10 @@ from curve.elipse_curve import ElipseCurve
 from random import randint
 
 
-def diffi_hellman(G:Point,curve:ElipseCurve,m:int,f):
-    # написать проверку для заданной кривой
+def diffi_hellman(G:Point,curve:ElipseCurve,p:int,m:int,f):
+    if 4*pow(int(curve.get_a),3)+27*(pow(int(curve.get_b),2)) % p==0:
+        print(4*pow(int(curve.get_a),3)+27*(pow(int(curve.get_b),2)) % p)
+        raise ValueError("Bad curve")
     # сделать метод автоматичкского выбора точки G на соновании N
     N = G.get_rank()
     h = int(curve.get_rang()/N)
